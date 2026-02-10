@@ -1,0 +1,6 @@
+层级 (Level),命令,编号格式,示例,说明
+Level -1,\part{...},罗马数字,Part I,最大的容器。它通常不会重置章节编号（Chapter 1 在 Part I，Chapter 5 可能在 Part II）。
+Level 0,\chapter{...},阿拉伯数字,Chapter 1,核心层级。它会强制换页。它会重置 Section 的编号。
+Level 1,\section{...},章.节,1.1,最常用的层级。
+Level 2,\subsection{...},章.节.小节,1.1.1,细分内容。
+Level 3,\subsubsection{...},(无编号),Title,默认情况下，这一层只加粗不显示数字（可以改）。

@@ -1,0 +1,51 @@
+\documentclass[12pt, a4paper, openany]{book} 
+% 使用 book 类，openany 允许章节在偶数页开始
+
+% 导入全局配置是
+\input{settings/preamble}
+
+% --- 封面信息 ---
+\title{\textbf{Research Literature Survey}\\ 
+    \Large For personal research}
+\author{By Xingsheng Li \\ 
+    \textit{Master's Student, Department of Computer Technology}}
+\date{\today}
+
+\begin{document}
+% 1. 封面与目录
+\maketitle
+\tableofcontents
+\newpage
+
+% 2. 摘要 (Abstract)
+\input{sections/0_preface/abstract}
+
+% --------------------------------------------------
+% Part I:  2025-2026 winter break research
+% --------------------------------------------------
+\part{2025-2026 winter break research}
+\setcounter{chapter}{0} % 强制把章节计数器归零
+\begin{refsection} % <--- 开启独立区域
+    \input{sections/2025_2026_winterbreak/main}
+    % \input{sections/2025_2026_winterbreak/projects}
+    % 只打印本部分的参考文献
+    \printbibliography[heading=bibintoc, title={References for 2025-2026 winter break research}]
+\end{refsection} % <--- 结束独立区域
+
+% --------------------------------------------------
+% Part : Uncategorized
+% --------------------------------------------------
+\part{Uncategorized}
+\setcounter{chapter}{0} % 强制把章节计数器归零
+\begin{refsection} % <--- 开启独立区域
+
+    \input{sections/uncategorized/main}
+    \input{sections/uncategorized/projects}
+    % 只打印本部分的参考文献
+    \printbibliography[heading=bibintoc, title={References for uncategorized}]
+
+\end{refsection} % <--- 结束独立区域
+
+
+
+\end{document}

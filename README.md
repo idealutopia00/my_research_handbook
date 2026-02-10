@@ -18,7 +18,13 @@ To compile the PDF locally, ensure you have a TeX distribution (TeX Live / MiKTe
 
 ```bash
 # Standard compilation chain
-pdflatex main
+xelatex main
 biber main
-pdflatex main
-pdflatex main
+xelatex main
+
+#clean folder
+latexmk -c
+make clean
+
+#or
+make

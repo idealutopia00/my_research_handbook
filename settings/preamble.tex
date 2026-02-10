@@ -1,0 +1,76 @@
+\ProvidesFile{preamble.tex}
+
+% --- 基础编码与字体 ---
+% 如果使用 Overleaf，推荐编译器选择 XeLaTeX
+\usepackage[UTF8]{ctex} % 支持中文，关键包
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% --- 页面布局 ---
+\usepackage{geometry}
+\geometry{a4paper, left=2.5cm, right=2.5cm, top=3cm, bottom=3cm}
+
+% --- 数学公式 ---
+\usepackage{amsmath, amssymb, amsthm, bm}
+
+% --- 图形与颜色 ---
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{booktabs} % 三线表
+
+% --- 参考文献管理 (BibLaTeX) ---
+\usepackage[backend=biber, style=ieee, sorting=none]{biblatex}
+\addbibresource{bib/uncategorized.bib} % 导入同级目录下的 bib 文件
+\addbibresource{bib/0.bib} % 导入同级目录下的 bib 文件
+
+% --- 超链接设置 ---
+\usepackage{hyperref}
+\usepackage{bookmark}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    citecolor=red, % 引用颜色设为红色，方便查看
+    pdftitle={Research Survey},
+}
+
+% --- 代码块设置 (适合写算法) ---
+\usepackage{listings}
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!60!black}
+}
+
+% --- 开源项目归档专用设置 ---
+
+% 1. 引入必要的包
+\usepackage{tcolorbox}
+\usepackage{fontawesome5} % 需要安装字体包，或者在 Overleaf 上直接可用
+\usepackage{xcolor}
+
+% 2. 定义项目卡片样式
+\newtcolorbox{repocard}[2][]{
+    colback=gray!5!white,      % 背景色：极淡的灰色
+    colframe=black!70!white,   % 边框色：深灰
+    title={\faGithub\ \textbf{#2}}, % 标题带 GitHub 图标
+    coltitle=white,
+    fonttitle=\bfseries\large,
+    #1 % 允许传入额外参数
+}
+
+% 3. 定义一个快速命令 \opensource
+% 参数: {项目名}{URL}{主要语言/框架}{简介}
+\newcommand{\opensource}[4]{
+    \begin{repocard}{#1}
+        \textbf{URL:} \url{#2} \\
+        \textbf{Stack:} \texttt{#3} \\
+        \textbf{Description:} #4
+    \end{repocard}
+}
