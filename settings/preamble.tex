@@ -20,9 +20,13 @@
 \usepackage{booktabs} % 三线表
 
 % --- 参考文献管理 (BibLaTeX) ---
-\usepackage[backend=biber, style=ieee, sorting=none]{biblatex}
-\addbibresource{bib/uncategorized.bib} % 导入同级目录下的 bib 文件
-\addbibresource{bib/0.bib} % 导入同级目录下的 bib 文件
+\usepackage[backend=biber,
+            style=gb7714-2015,  % <--- 【核心修改】改成中国国标样式
+            % style=ieee,
+            sorting=none]{biblatex}
+\addbibresource{bib/ai_foundations.bib} % AI foundations references
+\addbibresource{bib/smart_mining.bib} % Smart mining references
+\addbibresource{bib/emerging_technologies.bib} % Emerging AI technologies references
 
 % --- 超链接设置 ---
 \usepackage{hyperref}

@@ -12,40 +12,57 @@
 \date{\today}
 
 \begin{document}
-% 1. 封面与目录
+% 1. 封面
 \maketitle
-\tableofcontents
-\newpage
-
 % 2. 摘要 (Abstract)
 \input{sections/0_preface/abstract}
+% 3. 目录 (Table of Contents)
+\tableofcontents
+\newpage
 
 % --------------------------------------------------
 % Part I:  2025-2026 winter break research
 % --------------------------------------------------
-\part{2025-2026 winter break research}
+\part{Smart Mining Research \\ 2025-2026 winter break}
 \setcounter{chapter}{0} % 强制把章节计数器归零
 \begin{refsection} % <--- 开启独立区域
-    \input{sections/2025_2026_winterbreak/main}
-    % \input{sections/2025_2026_winterbreak/projects}
+    \input{sections/smart_mining/main}
+    % \input{sections/smart_mining/projects}
     % 只打印本部分的参考文献
-    \printbibliography[heading=bibintoc, title={References for 2025-2026 winter break research}]
+    \printbibliography[heading=bibintoc, title={References for this Part}]
 \end{refsection} % <--- 结束独立区域
 
 % --------------------------------------------------
-% Part : Uncategorized
+% Part II: AI Foundations
 % --------------------------------------------------
-\part{Uncategorized}
+\part{AI Foundations}
 \setcounter{chapter}{0} % 强制把章节计数器归零
 \begin{refsection} % <--- 开启独立区域
 
-    \input{sections/uncategorized/main}
-    \input{sections/uncategorized/projects}
+    \input{sections/ai_foundations/main}
+    \input{sections/ai_foundations/projects}
     % 只打印本部分的参考文献
-    \printbibliography[heading=bibintoc, title={References for uncategorized}]
+    \printbibliography[heading=bibintoc, title={References for this Part}]
 
 \end{refsection} % <--- 结束独立区域
 
-
+% --------------------------------------------------
+% Part III: Emerging AI Technologies
+% --------------------------------------------------
+\part{Emerging AI Technologies}
+\setcounter{chapter}{0}
+\begin{refsection}
+    % World Models
+    \input{sections/emerging_technologies/world_models/main}
+    
+    % Vision-Language Models
+    \input{sections/emerging_technologies/vision_language_models/main}
+    
+    % End-to-End Models
+    \input{sections/emerging_technologies/end_to_end_models/main}
+    
+    % References for this part
+    \printbibliography[heading=bibintoc, title={References for this Part}]
+\end{refsection}
 
 \end{document}

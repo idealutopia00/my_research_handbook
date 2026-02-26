@@ -1,0 +1,66 @@
+\chapter{World Models: Learning and Planning in Latent Spaces}
+
+\section{Introduction}
+World models represent a paradigm shift in reinforcement learning and sequential decision-making, where agents learn compact latent representations of environments to enable efficient planning and generalization. Unlike traditional model-free approaches that learn policies directly from observations, world models first learn a generative model of the environment dynamics in a compressed latent space, then use this model for planning or policy learning. This separation of representation learning and control has demonstrated remarkable sample efficiency and generalization capabilities across diverse domains, from robotics to game playing.
+
+\section{Theoretical Foundations}
+The concept of world models traces back to early work on latent variable models and Bayesian filtering. Modern implementations build upon several key theoretical pillars:
+
+\subsection{Latent State Representation}
+World models learn to encode high-dimensional observations (e.g., images) into low-dimensional latent states that capture essential environmental dynamics while discarding irrelevant details. This compression enables efficient planning by operating in a much smaller state space.
+
+\subsection{Predictive Modeling}
+At the core of world models is the ability to predict future latent states given current states and actions. This predictive capability allows agents to simulate trajectories without interacting with the actual environment, enabling "imagination-based" planning.
+
+\subsection{Planner-Actor Separation}
+The world model architecture typically separates the model (which learns environment dynamics) from the planner/actor (which uses the model to make decisions). This modular design allows for different planning algorithms to be employed once the model is learned.
+
+\section{Key Architectures and Methods}
+
+\subsection{Dreamer Series}
+The Dreamer family of algorithms has been instrumental in advancing world model research. Dreamer \cite{ha2018world} introduced the concept of learning latent dynamics models using variational autoencoders and training policies entirely within the learned latent space. Subsequent versions, DreamerV2 \cite{hafner2020dreamerv2} and DreamerV3 \cite{hafner2023dreamerv3}, improved stability, scalability, and performance across diverse environments.
+
+\subsection{Model-Based RL with Latent Dynamics}
+Other approaches include PlaNet \cite{hafner2019planet}, which uses a recurrent state-space model for planning, and IRIS \cite{micheli2023iris}, which employs autoregressive transformers for next-token prediction in latent space.
+
+\subsection{Generative World Models}
+Recent work explores generative world models that can produce diverse plausible futures. Genie \cite{genie2024} demonstrates how world models can be trained from internet videos without action labels, enabling foundation models for embodied AI.
+
+\section{Applications and Performance}
+
+\subsection{Sample Efficiency}
+World models dramatically reduce the number of environment interactions required for learning. For example, DreamerV3 achieves superhuman performance on the Atari benchmark using only 100M environment steps, compared to billions required by model-free methods.
+
+\subsection{Generalization and Transfer}
+By learning generalizable environment dynamics, world models enable transfer across task variations and domain shifts. This is particularly valuable for real-world applications where environment variability is high.
+
+\subsection{Robotics and Embodied AI}
+World models are revolutionizing robotics by allowing agents to plan in learned latent spaces, reducing the need for extensive real-world trial-and-error. Applications include robotic manipulation, navigation, and autonomous driving.
+
+\section{Challenges and Limitations}
+
+\subsection{Model Inaccuracy}
+The performance of world models depends critically on the accuracy of the learned dynamics. Inaccuracies can compound during long-horizon planning, leading to suboptimal or catastrophic decisions.
+
+\subsection{Computational Complexity}
+Training world models requires significant computational resources, particularly for high-dimensional observations. The need to maintain both encoder, dynamics model, and planner increases architectural complexity.
+
+\subsection{Exploration-Exploitation Trade-off}
+World models can suffer from confirmation bias, where the model becomes overconfident in its predictions and fails to explore regions of state space where its dynamics model is inaccurate.
+
+\section{Future Directions}
+
+\subsection{Foundation World Models}
+The development of large-scale, pre-trained world models that can be fine-tuned for specific tasks represents a promising direction, analogous to foundation models in language and vision.
+
+\subsection{Multimodal World Models}
+Integrating multiple sensory modalities (vision, audio, tactile) into unified world models could enable more comprehensive environment understanding.
+
+\subsection{Symbolic-Neural Integration}
+Combining neural world models with symbolic reasoning could enhance interpretability and enable more sophisticated planning capabilities.
+
+\subsection{Efficiency Improvements}
+Research into more efficient architectures, training procedures, and planning algorithms will be crucial for real-world deployment.
+
+\section{Conclusion}
+World models represent a powerful framework for sample-efficient reinforcement learning and planning. By learning compact latent representations of environment dynamics, they enable agents to reason about future outcomes and make informed decisions with minimal environment interaction. While challenges remain in model accuracy, computational efficiency, and exploration, ongoing research continues to advance the state of the art. As world models scale and integrate with other AI paradigms, they hold promise for creating more capable, generalizable, and efficient autonomous systems.
